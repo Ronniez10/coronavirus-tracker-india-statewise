@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>COVID-19 Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="../images/image.png">
+    &nbsp;
+    <img src="../images/Flag_of_India.svg" width="200" height="200">
+
+
+    <h1>COVID-19 Tracker</h1>
+    <p>The Total  Coronavirus Cases across the India state wise are shown below:</p>
+
+    <div class="jumbotron">
+        <h1 class="display-4" >
+            <span>Total Active Cases:</span>
+            <b><span th:text=${#numbers.formatInteger(totalActive,3,'COMMA')}></span></b>
+        </h1>
+        <hr class="my-4">
+        <p class="lead"></p>
+        <p>
+            <span>Total Confirmed Cases Till Date:</span>
+            <b><span th:text=${#numbers.formatInteger(totalConfirmed,3,'COMMA')}></span></b>
+        </p>
+        <hr>
+        <p>
+            <span>Total Recovered Cases Till Date:</span>
+            <b><span th:text=${#numbers.formatInteger(totalRecovered,3,'COMMA')}></span></b>
+        </p>
+        <hr>
+        <p>
+            <span>Total Deaths Cases Till Date:</span>
+            <b><span th:text=${#numbers.formatInteger(totalDeaths,3,'COMMA')}></span></b>
+        </p>
+    </div>
+
+
+    <table class="table table-hover ">
+        <thead class="thead-dark">
+        <tr>
+            <th>State</th>
+            <th>State Code</th>
+            <th>Confirmed Cases</th>
+            <th>Recovered Cases</th>
+            <th>Deaths</th>
+            <th>Active Cases</th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <tr th:each="stateData : ${stateWiseList}">
+            <td th:text="${stateData.state}"></td>
+            <td th:text="${stateData.stateCode}"></td>
+            <td th:text=${#numbers.formatInteger(stateData.confirmed,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.recovered,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.deaths,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.active,3,'COMMA')}></td>
+        </tr>
+        </tbody>
+
+
+    </table>
+
+
+
+</div>
+
+</body>
+
+
+</html>
