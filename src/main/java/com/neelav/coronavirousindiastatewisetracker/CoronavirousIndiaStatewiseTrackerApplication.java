@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class CoronavirousIndiaStatewiseTrackerApplication {
+public class CoronavirusIndiaStatewiseTrackerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoronavirousIndiaStatewiseTrackerApplication.class, args);
+		SpringApplication.run(CoronavirusIndiaStatewiseTrackerApplication.class, args);
 	}
 
 }
