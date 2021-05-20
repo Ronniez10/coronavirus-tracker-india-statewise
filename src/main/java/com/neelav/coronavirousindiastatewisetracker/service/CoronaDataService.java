@@ -54,16 +54,22 @@ public class CoronaDataService {
 
 
         for (CSVRecord record : records) {
-            CoronaData coronaStats = new CoronaData();
 
-            coronaStats.setState(record.get("State"));
-            coronaStats.setConfirmed(Integer.parseInt(record.get("Confirmed")));
-            coronaStats.setActive(Integer.parseInt(record.get("Active")));
-            coronaStats.setDeaths(Integer.parseInt(record.get("Deaths")));
-            coronaStats.setRecovered(Integer.parseInt(record.get("Recovered")));
-            coronaStats.setStateCode(record.get("State_code"));
+            if(!record.get("State").equals("State Unassigned")) {
+                CoronaData coronaStats = new CoronaData();
 
-            statewiseData.add(coronaStats);
+                coronaStats.setState(record.get("State"));
+                coronaStats.setConfirmed(Integer.parseInt(record.get("Confirmed")));
+                coronaStats.setActive(Integer.parseInt(record.get("Active")));
+                coronaStats.setDeaths(Integer.parseInt(record.get("Deaths")));
+                coronaStats.setRecovered(Integer.parseInt(record.get("Recovered")));
+                coronaStats.setNewCasesToday(record.get("Delta_Confirmed"));
+                coronaStats.setDeathsToday(record.get("Delta_Deaths"));
+                coronaStats.setRecoveredToday(record.get("Delta_Recovered"));
+
+
+                statewiseData.add(coronaStats);
+            }
 
         }
 

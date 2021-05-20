@@ -18,7 +18,6 @@ public class MainController {
     @GetMapping("/")
     public String home(Model model)
     {
-        int sum=0;
         List<CoronaData> getAllStats= coronaDataService.getStateData();
         CoronaData totalData = getAllStats.get(0);
         int totalConfirmedCases = totalData.getConfirmed();

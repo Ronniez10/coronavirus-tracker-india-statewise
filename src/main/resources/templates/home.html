@@ -46,11 +46,13 @@
         <thead class="thead-dark">
         <tr>
             <th>State</th>
-            <th>State Code</th>
             <th>Confirmed Cases</th>
             <th>Recovered Cases</th>
             <th>Deaths</th>
             <th>Active Cases</th>
+            <th>New Cases Today</th>
+            <th>Deaths Today</th>
+            <th>Recovered Today</th>
         </tr>
         </thead>
 
@@ -58,11 +60,13 @@
         <tbody>
         <tr th:each="stateData : ${stateWiseList}">
             <td th:text="${stateData.state}"></td>
-            <td th:text="${stateData.stateCode}"></td>
             <td th:text=${#numbers.formatInteger(stateData.confirmed,3,'COMMA')}></td>
             <td th:text=${#numbers.formatInteger(stateData.recovered,3,'COMMA')}></td>
             <td th:text=${#numbers.formatInteger(stateData.deaths,3,'COMMA')}></td>
             <td th:text=${#numbers.formatInteger(stateData.active,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.newCasesToday,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.deathsToday,3,'COMMA')}></td>
+            <td th:text=${#numbers.formatInteger(stateData.recoveredToday,3,'COMMA')}></td>
         </tr>
         </tbody>
 

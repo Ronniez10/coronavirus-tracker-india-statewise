@@ -14,6 +14,12 @@ public class CoronaData {
 
     private String stateCode;
 
+    private String newCasesToday;
+
+    private String deathsToday;
+
+    private String recoveredToday;
+
     public CoronaData() {
     }
 
@@ -63,5 +69,29 @@ public class CoronaData {
 
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
+    }
+
+    public String getNewCasesToday() {
+        return newCasesToday;
+    }
+
+    public void setNewCasesToday(String newCasesToday) {
+        this.newCasesToday = newCasesToday;
+    }
+
+    public String getDeathsToday() {
+        return deathsToday;
+    }
+
+    public void setDeathsToday(String deathsToday) {
+        this.deathsToday = deathsToday;
+    }
+
+    public String getRecoveredToday() {
+        return recoveredToday;
+    }
+
+    public void setRecoveredToday(String recoveredToday) {
+        this.recoveredToday = recoveredToday;
     }
 }
